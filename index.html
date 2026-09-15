@@ -302,21 +302,18 @@
         // CONFIGURACIÓN: Número de WhatsApp
         const whatsappNumber = "5218114820988";
 
-        // BASE DE DATOS DE PRODUCTOS CON TODAS LAS IMÁGENES ACTUALIZADAS
+        // BASE DE DATOS DE PRODUCTOS
         const productos = [
             // --- TANQUES Y TRATAMIENTO DE AIRE ---
             {
-                modelo: "TANQUE PULMÓN VERTICAL MARSA 1000L",
+                modelo: "TANQUE PULMÓN VERTICAL 1000L",
                 categoria: "Tanques y Tratamiento",
                 imagen: "https://i.postimg.cc/1nkSynHM/Screenshot-20260914-144931-Mercado-Libre.jpg",
-                resumenSpecs: "1000 L | Vertical | Marca Marsa",
+                resumenSpecs: "1000 L | Vertical",
                 specs: {
                     "Capacidad": "1000 Litros",
                     "Orientación": "Vertical",
-                    "Marca": "Marsa",
                     "Tipo": "Tanque Pulmón (Aire a Presión)",
-                    "Entrada/Salida": "Cople 1-1/4\" NPT",
-                    "Coples Adicionales": "4 coples de 3/4\" NPT",
                     "Aplicación": "Universal para compresores"
                 }
             },
@@ -338,11 +335,10 @@
                 modelo: "CAR-SD230410INX",
                 categoria: "Secadores de Aire",
                 imagen: "https://i.postimg.cc/hJZtxGSb/IMG-20260914-WA0102.jpg",
-                resumenSpecs: "9 HP | 813 CFM | Trifásico",
+                resumenSpecs: "813 CFM | Trifásico",
                 specs: {
                     "Tipo": "Secador de Aire Refrigerativo",
                     "Alimentación": "440V a 60Hz (Trifásico)",
-                    "Potencia": "9 HP / 6.58 kW",
                     "Capacidad": "813 CFM / 23 m³/min",
                     "Presión de Trabajo": "232 PSI / 1.6 MPa",
                     "Tipo de Gas": "R407C",
@@ -375,11 +371,10 @@
                 modelo: "CAR-SD80410INX",
                 categoria: "Secadores de Aire",
                 imagen: "https://i.postimg.cc/Mc3pRGW7/IMG-20260914-WA0094.jpg",
-                resumenSpecs: "2 HP | 300 CFM | Monofásico",
+                resumenSpecs: "300 CFM | Monofásico",
                 specs: {
                     "Tipo": "Secador de Aire Refrigerativo",
                     "Alimentación": "220V a 60Hz (Monofásico)",
-                    "Potencia": "2 HP / 1.619 kW",
                     "Capacidad": "300 CFM / 8.5 m³/min",
                     "Tamaño de Rosca": "2\" NPT",
                     "Presión de Trabajo": "232 PSI / 1.6 MPa",
@@ -466,36 +461,33 @@
 
             // --- REFACCIONES Y AUTOMÁTICOS ---
             {
-                modelo: "CAR-KA-4A",
+                modelo: "KIT DE ANILLOS",
                 categoria: "Refacciones y Automáticos",
                 imagen: "https://i.postimg.cc/0b3QbjyX/1789428653996.png",
-                resumenSpecs: "Kit Anillos | TX-50C/100C | Pistón Alta",
+                resumenSpecs: "Kit de Anillos | Pistón de Alta",
                 specs: {
                     "Tipo": "Kit de Anillos",
-                    "Compatibilidad": "TX-50C y TX-100C",
-                    "Aplicación": "1 Pistón de Alta",
-                    "Marca": "Carroll"
+                    "Aplicación": "Pistón de Alta",
+                    "Compatibilidad": "Carroll, Milwaukee, Evans, Silverline"
                 }
             },
             {
-                modelo: "CAR-KA-4B",
+                modelo: "KIT DE ANILLOS",
                 categoria: "Refacciones y Automáticos",
                 imagen: "https://i.postimg.cc/tYfTYJ4S/1789428621695.png",
-                resumenSpecs: "Kit Anillos | TX-50C/100C | Pistón Baja",
+                resumenSpecs: "Kit de Anillos | Pistón de Baja",
                 specs: {
                     "Tipo": "Kit de Anillos",
-                    "Compatibilidad": "TX-50C y TX-100C",
-                    "Aplicación": "1 Pistón de Baja",
-                    "Marca": "Carroll"
+                    "Aplicación": "Pistón de Baja",
+                    "Compatibilidad": "Carroll, Milwaukee, Evans, Silverline"
                 }
             },
             {
-                modelo: "1310 VÁLVULA CHECK #4 KELLOG 3/4\"X1\"",
+                modelo: "VÁLVULA CHECK 3/4\" X 1\"",
                 categoria: "Refacciones y Automáticos",
                 imagen: "https://i.postimg.cc/5jLpPYZ7/1789428978943.png",
                 resumenSpecs: "Válvula Check | Latón | 200 LB",
                 specs: {
-                    "Modelo": "Kellog #4",
                     "Material": "Latón",
                     "Tanque": "1\" NPT",
                     "Tubo Cabezal": "3/4\" Hembra NPT",
@@ -504,12 +496,11 @@
                 }
             },
             {
-                modelo: "1330 VÁLVULA CHECK #25 EVANS 3/4\"X3/4\"",
+                modelo: "VÁLVULA CHECK 3/4\" X 3/4\"",
                 categoria: "Refacciones y Automáticos",
                 imagen: "https://i.postimg.cc/bdkL6DKm/1789429152838.png",
                 resumenSpecs: "Check Barril | Latón | 200 LB",
                 specs: {
-                    "Modelo": "Evans Barril #25",
                     "Material": "Latón",
                     "Tanque": "3/4\" NPT",
                     "Tubo Cabezal": "3/4\" Macho Cuerda Fina (Barril)",
@@ -518,7 +509,7 @@
                 }
             },
             {
-                modelo: "CAR-ACTB11 VÁLVULA CHECK RECTA 1\"X1\"",
+                modelo: "VÁLVULA CHECK RECTA 1\" X 1\"",
                 categoria: "Refacciones y Automáticos",
                 imagen: "https://i.postimg.cc/JtZKTD9K/Screenshot-20260914-141840-Chrome(1).jpg",
                 resumenSpecs: "Check Recta | Bronce | 200 PSI",
@@ -532,7 +523,7 @@
                 }
             },
             {
-                modelo: "CAR-ACTB1114 VÁLVULA CHECK RECTA 1\"X1-1/4\"",
+                modelo: "VÁLVULA CHECK RECTA 1\" X 1-1/4\"",
                 categoria: "Refacciones y Automáticos",
                 imagen: "https://i.postimg.cc/BtHNhLdh/1789429298769.png",
                 resumenSpecs: "Check Recta | Bronce | 200 PSI",
@@ -546,7 +537,7 @@
                 }
             },
             {
-                modelo: "CHECK ÁNGULO 3/8\" X 1/2\" MOTOCOMPRESOR 1300",
+                modelo: "VÁLVULA CHECK ÁNGULO 3/8\" X 1/2\"",
                 categoria: "Refacciones y Automáticos",
                 imagen: "https://i.postimg.cc/zbXbTMZM/1789430399893.png",
                 resumenSpecs: "Check Ángulo | Aleación Zinc",
@@ -558,7 +549,7 @@
                 }
             },
             {
-                modelo: "CHECK ÁNGULO 1/2\" X 1/2\" REFORZADA",
+                modelo: "VÁLVULA CHECK ÁNGULO 1/2\" X 1/2\"",
                 categoria: "Refacciones y Automáticos",
                 imagen: "https://i.postimg.cc/5YNY8GdR/Screenshot-20260914-141927-Chrome.jpg",
                 resumenSpecs: "Check Ángulo Reforzada | Latón",
@@ -570,7 +561,7 @@
                 }
             },
             {
-                modelo: "CHECK ÁNGULO 3/4\" X 3/4\"",
+                modelo: "VÁLVULA CHECK ÁNGULO 3/4\" X 3/4\"",
                 categoria: "Refacciones y Automáticos",
                 imagen: "https://i.postimg.cc/5YNY8Gdn/Screenshot-20260914-173302-Gallery.jpg",
                 resumenSpecs: "Check Ángulo | Aleación Zinc",
@@ -582,10 +573,10 @@
                 }
             },
             {
-                modelo: "CAR-VAL-4",
+                modelo: "KIT DE VÁLVULAS",
                 categoria: "Refacciones y Automáticos",
                 imagen: "https://i.postimg.cc/XZsp888M/1789409109682.png", 
-                resumenSpecs: "Kit Válvulas | TX-50C y TX-100C",
+                resumenSpecs: "Kit de Válvulas | TX-50C y TX-100C",
                 specs: {
                     "Tipo": "Kit de válvulas",
                     "Compatibilidad": "TX-50C y TX-100C",
@@ -619,11 +610,12 @@
                 }
             },
             {
-                modelo: "AUTOMATICO INDUSTRIAL 145-175 PSI",
+                modelo: "SWITCH LEFOO INDUSTRIAL",
                 categoria: "Refacciones y Automáticos",
                 imagen: "https://i.postimg.cc/wRmM9dYX/1789425162900.png", 
                 resumenSpecs: "Metálico | 2 Líneas | 1 Vía",
                 specs: {
+                    "Marca": "Lefoo",
                     "Tipo": "Metálico Industrial",
                     "Rango de Presión": "145 - 175 PSI (Max 250 PSI)",
                     "Conexión de Entrada": "NPT 1/4\", 1 vía",
@@ -633,13 +625,12 @@
                 }
             },
             {
-                modelo: "AUTOMATICO LEFOO H4",
+                modelo: "SWITCH LEFOO",
                 categoria: "Refacciones y Automáticos",
                 imagen: "https://i.postimg.cc/wRmM9dYc/1789425489249.png", 
                 resumenSpecs: "140-175 PSI | C/M y C/V",
                 specs: {
                     "Marca": "Lefoo",
-                    "Modelo": "H4 C/M y C/V",
                     "Rango de Presión": "140 - 175 PSI",
                     "Conexión de Entrada": "NPT 1/4\", 4 vías",
                     "Válvula de alivio": "1/8\"",
@@ -648,13 +639,12 @@
                 }
             },
             {
-                modelo: "AUTOMATICO PC6",
+                modelo: "SWITCH LEFOO",
                 categoria: "Refacciones y Automáticos",
                 imagen: "https://i.postimg.cc/YLW0twBd/1789425536706.png", 
                 resumenSpecs: "85-115 PSI | S/M y C/V",
                 specs: {
-                    "Marca": "TF",
-                    "Modelo": "PC6 S/M y C/V",
+                    "Marca": "Lefoo",
                     "Rango de Presión": "85 - 115 PSI",
                     "Conexión de Entrada": "NPT 1/4\", 1 vía",
                     "Válvula de alivio": "1/8\"",
@@ -663,13 +653,12 @@
                 }
             },
             {
-                modelo: "AUTOMATICO SK7 1202",
+                modelo: "SWITCH LEFOO",
                 categoria: "Refacciones y Automáticos",
                 imagen: "https://i.postimg.cc/D4X07K3t/1789425622894.png", 
                 resumenSpecs: "90-120 PSI | C/M y C/V",
                 specs: {
-                    "Marca": "TF",
-                    "Modelo": "SK7 C/M y C/V (1202)",
+                    "Marca": "Lefoo",
                     "Rango de Presión": "90 - 120 PSI",
                     "Conexión de Entrada": "NPT 1/4\", 4 vías",
                     "Válvula de alivio": "1/8\"",
