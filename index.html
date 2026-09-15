@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compresores y Suministros Industriales</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --carroll-red: #E31837;
+            --carroll-dark: #1A1A1A;
+            --carroll-light: #F4F4F4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background-color: var(--carroll-light);
+            color: #333;
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, var(--carroll-dark) 0%, #000 100%);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 4px solid var(--carroll-red);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .header-content h1 {
+            font-size: 26px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        .header-content span {
+            color: var(--carroll-red);
+        }
+
+        /* BANNER DESTACADO DE SERVICIOS */
+        .service-banner {
+            background: #fff;
+            border-bottom: 2px solid #e0e0e0;
+            padding: 14px 20px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .service-banner-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            color: var(--carroll-dark);
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+        }
+
+        .service-banner-content i {
+            color: var(--carroll-red);
+            font-size: 18px;
+        }
+
+        /* FILTROS */
+        .category-filters {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px;
+            flex-wrap: wrap;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .filter-btn {
+            background: var(--carroll-light);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            color: #666;
+            cursor: pointer;
+            transition: 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .filter-btn:hover {
+            color: var(--carroll-dark);
+            background: #e9e9e9;
+        }
+
+        .filter-btn.active {
+            background: var(--carroll-dark);
+            color: white;
+            border-color: var(--carroll-dark);
+        }
+
+        /* CATÁLOGO GRID */
+        .catalog-container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        /* TARJETA DE PRODUCTO */
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #eee;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(227, 24, 55, 0.15);
+        }
+
+        .product-image-container {
+            width: 100%;
+            height: 250px;
+            background: #fff;
+            padding: 20px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .product-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--carroll-red);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(227,24,55,0.3);
+        }
+
+        .product-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-category {
+            font-size: 12px;
+            color: #888;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .product-title {
+            font-size: 20px;
+            color: var(--carroll-dark);
+            margin-bottom: 15px;
+            font-weight: 900;
+        }
+
+        /* TABLA DE ESPECIFICACIONES */
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            font-size: 13px;
+        }
+
+        .specs-table tr {
+            border-bottom: 1px solid #eee;
+        }
+        
+        .specs-table tr:last-child {
+            border-bottom: none;
+        }
+
+        .specs-table td {
+            padding: 8px 0;
+        }
+
+        .specs-label {
+            font-weight: bold;
+            color: #555;
+            width: 50%;
+        }
+
+        .specs-value {
+            color: #111;
+            text-align: right;
+            font-weight: 600;
+        }
+
+        /* BOTÓN WHATSAPP */
+        .whatsapp-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: #25D366;
+            color: white;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-top: auto;
+            transition: 0.3s;
+            border: 2px solid #25D366;
+        }
+
+        .whatsapp-btn:hover {
+            background: white;
+            color: #25D366;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--carroll-dark);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 600px) {
+            .header-content h1 { font-size: 20px; }
+            .service-banner-content { font-size: 13px; }
+            .catalog-container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <h1>Compresores y <span>Suministros Industriales</span></h1>
+            <p>Catálogo Digital de Cabezales Carroll, Secadores, Tanques y Refacciones</p>
+        </div>
+    </header>
+
+    <!-- BANNER PROFESIONAL DE SERVICIOS -->
+    <div class="service-banner">
+        <div class="service-banner-content">
+            <i class="fa-solid fa-gears"></i>
+            <span>Venta y fabricación de válvulas y anillos de cualquier marca de compresor.</span>
+        </div>
+    </div>
+
+    <div class="category-filters" id="filters">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="Cabezales TX (Uso Pesado)">Serie TX</button>
+        <button class="filter-btn" data-filter="Cabezales TB (Estándar)">Serie TB</button>
+        <button class="filter-btn" data-filter="Secadores de Aire">Secadores de Aire</button>
+        <button class="filter-btn" data-filter="Tanques y Tratamiento">Tanques y Tratamiento</button>
+        <button class="filter-btn" data-filter="Refacciones y Automáticos">Refacciones y Automáticos</button>
+    </div>
+
+    <div class="catalog-container" id="catalog">
+        <!-- Los productos se cargarán aquí por JavaScript -->
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Compresores y Suministros Industriales.</p>
+        <p style="font-size: 13px; margin-top: 8px; color: #ddd; font-weight: bold;">
+            Venta y fabricación de válvulas y anillos de cualquier marca de compresor.
+        </p>
+        <p style="font-size: 12px; margin-top: 10px; color: #aaa;">Solicita cotización directa vía WhatsApp.</p>
+    </footer>
+
+    <script>
+        // CONFIGURACIÓN: Número de WhatsApp
+        const whatsappNumber = "5218114820988";
+
+        // BASE DE DATOS DE PRODUCTOS CON TODAS LAS IMÁGENES ACTUALIZADAS
+        const productos = [
+            // --- TANQUES Y TRATAMIENTO DE AIRE ---
+            {
+                modelo: "TANQUE PULMÓN VERTICAL MARSA 1000L",
+                categoria: "Tanques y Tratamiento",
+                imagen: "https://i.postimg.cc/1nkSynHM/Screenshot-20260914-144931-Mercado-Libre.jpg",
+                resumenSpecs: "1000 L | Vertical | Marca Marsa",
+                specs: {
+                    "Capacidad": "1000 Litros",
+                    "Orientación": "Vertical",
+                    "Marca": "Marsa",
+                    "Tipo": "Tanque Pulmón (Aire a Presión)",
+                    "Entrada/Salida": "Cople 1-1/4\" NPT",
+                    "Coples Adicionales": "4 coples de 3/4\" NPT",
+                    "Aplicación": "Universal para compresores"
+                }
+            },
+            {
+                modelo: "FILTRO COALESCENTE ALTA PRESIÓN P/ LÁSER",
+                categoria: "Tanques y Tratamiento",
+                imagen: "https://i.postimg.cc/H8bgnYZ4/IMG-20260914-WA0114.jpg",
+                resumenSpecs: "Super Alta Presión | Equipo Láser",
+                specs: {
+                    "Tipo": "Filtro Coalescente",
+                    "Presión": "Super Alta Presión",
+                    "Aplicación": "Corte y equipo Láser",
+                    "Función": "Purificación extrema de aire"
+                }
+            },
+
+            // --- SECADORES DE AIRE REFRIGERATIVOS ---
+            {
+                modelo: "CAR-SD230410INX",
+                categoria: "Secadores de Aire",
+                imagen: "https://i.postimg.cc/hJZtxGSb/IMG-20260914-WA0102.jpg",
+                resumenSpecs: "9 HP | 813 CFM | Trifásico",
+                specs: {
+                    "Tipo": "Secador de Aire Refrigerativo",
+                    "Alimentación": "440V a 60Hz (Trifásico)",
+                    "Potencia": "9 HP / 6.58 kW",
+                    "Capacidad": "813 CFM / 23 m³/min",
+                    "Presión de Trabajo": "232 PSI / 1.6 MPa",
+                    "Tipo de Gas": "R407C",
+                    "Temp. Entrada": "< 65 °C",
+                    "Punto de Rocío": "2 - 10 °C",
+                    "Peso": "270 Kg",
+                    "Medidas (LxAnxAl)": "121.5 x 90 x 116 cm"
+                }
+            },
+            {
+                modelo: "SD-25134220",
+                categoria: "Secadores de Aire",
+                imagen: "https://i.postimg.cc/t14gY6H1/IMG-20260914-WA0092.jpg",
+                resumenSpecs: "88 CFM | Monofásico | Doble Tanque",
+                specs: {
+                    "Tipo": "Secador de Aire Refrigerativo",
+                    "Alimentación": "220V a 60Hz (Monofásico)",
+                    "Capacidad": "88 CFM / 2.5 m³/min",
+                    "Tamaño de Rosca": "1\"",
+                    "Compatibilidad": "Equipos de 15 HP y 20 HP",
+                    "Intercambiador": "Acero Inoxidable",
+                    "Tipo de Gas": "R134",
+                    "Temp. Entrada": "< 80 °C",
+                    "Punto de Rocío": "2 - 10 °C",
+                    "Peso": "50 Kg",
+                    "Medidas (LxAnxAl)": "70 x 42 x 70 cm"
+                }
+            },
+            {
+                modelo: "CAR-SD80410INX",
+                categoria: "Secadores de Aire",
+                imagen: "https://i.postimg.cc/Mc3pRGW7/IMG-20260914-WA0094.jpg",
+                resumenSpecs: "2 HP | 300 CFM | Monofásico",
+                specs: {
+                    "Tipo": "Secador de Aire Refrigerativo",
+                    "Alimentación": "220V a 60Hz (Monofásico)",
+                    "Potencia": "2 HP / 1.619 kW",
+                    "Capacidad": "300 CFM / 8.5 m³/min",
+                    "Tamaño de Rosca": "2\" NPT",
+                    "Presión de Trabajo": "232 PSI / 1.6 MPa",
+                    "Intercambiador": "Acero Inoxidable",
+                    "Tipo de Gas": "R410A",
+                    "Temp. Entrada": "< 65 °C",
+                    "Punto de Rocío": "2 - 10 °C",
+                    "Peso": "55 Kg",
+                    "Medidas (LxAnxAl)": "77 x 59 x 99 cm"
+                }
+            },
+
+            // --- CABEZALES SERIE TX ---
+            {
+                modelo: "CAR-TX-50C",
+                categoria: "Cabezales TX (Uso Pesado)",
+                imagen: "https://i.postimg.cc/8s2stshN/IMG-20260914-WA0096.jpg",
+                resumenSpecs: "5 HP | 2 cil | 115 PSI",
+                specs: {
+                    "Potencia": "5 HP",
+                    "No. de cilindros": "2 en V",
+                    "Presión máxima": "115 PSI / 8 BAR",
+                    "Vol. aire producido": "21 PCM / 594 L/min",
+                    "Velocidad": "900 RPM",
+                    "Diámetro polea": "10.5\"",
+                    "Diámetro cilindro": "2 x 80 mm",
+                    "Peso cabezal": "24.00 Kg",
+                    "Medidas (LxAnxAl)": "43 x 33 x 36 cm"
+                }
+            },
+            {
+                modelo: "CAR-TX-100C",
+                categoria: "Cabezales TX (Uso Pesado)",
+                imagen: "https://i.postimg.cc/c6p6X6fc/IMG-20260914-WA0095.jpg",
+                resumenSpecs: "10 HP | 3 cil | 115 PSI",
+                specs: {
+                    "Potencia": "10 HP",
+                    "No. de cilindros": "3 en W",
+                    "Presión máxima": "115 PSI / 8 BAR",
+                    "Vol. aire producido": "36 PCM / 1,019 L/min",
+                    "Velocidad": "900 RPM",
+                    "Diámetro polea": "12.5\"",
+                    "Diámetro cilindro": "3 x 90 mm",
+                    "Peso cabezal": "43.00 Kg",
+                    "Medidas (LxAnxAl)": "55 x 37 x 43 cm"
+                }
+            },
+            
+            // --- CABEZALES SERIE TB ---
+            {
+                modelo: "CAR-TB-20C",
+                categoria: "Cabezales TB (Estándar)",
+                imagen: "https://i.postimg.cc/nXZrf5R1/IMG-20260914-WA0103.jpg",
+                resumenSpecs: "2 HP | 2 cil | 115 PSI",
+                specs: {
+                    "Potencia": "2 HP",
+                    "No. de cilindros": "2 en V",
+                    "Presión máxima": "115 PSI / 8 BAR",
+                    "Vol. aire producido": "7 PCM / 198 L/min",
+                    "Velocidad": "1000 RPM",
+                    "Diámetro polea": "10\"",
+                    "Diámetro cilindro": "2 x 51 mm",
+                    "Peso cabezal": "14.50 Kg",
+                    "Medidas (LxAnxAl)": "33 x 28 x 33 cm"
+                }
+            },
+            {
+                modelo: "CAR-TB-30C",
+                categoria: "Cabezales TB (Estándar)",
+                imagen: "https://i.postimg.cc/G9W9q9v5/IMG-20260914-WA0099.jpg",
+                resumenSpecs: "3 HP | 2 cil | 115 PSI",
+                specs: {
+                    "Potencia": "3 HP",
+                    "No. de cilindros": "2 en V",
+                    "Presión máxima": "115 PSI / 8 BAR",
+                    "Vol. aire producido": "11.5 PCM / 325 L/min",
+                    "Velocidad": "1000 RPM",
+                    "Diámetro polea": "10\"",
+                    "Diámetro cilindro": "2 x 65 mm",
+                    "Peso cabezal": "16.00 Kg",
+                    "Medidas (LxAnxAl)": "36 x 30 x 36 cm"
+                }
+            },
+
+            // --- REFACCIONES Y AUTOMÁTICOS ---
+            {
+                modelo: "CAR-KA-4A",
+                categoria: "Refacciones y Automáticos",
+                imagen: "https://i.postimg.cc/0b3QbjyX/1789428653996.png",
+                resumenSpecs: "Kit Anillos | TX-50C/100C | Pistón Alta",
+                specs: {
+                    "Tipo": "Kit de Anillos",
+                    "Compatibilidad": "TX-50C y TX-100C",
+                    "Aplicación": "1 Pistón de Alta",
+                    "Marca": "Carroll"
+                }
+            },
+            {
+                modelo: "CAR-KA-4B",
+                categoria: "Refacciones y Automáticos",
+                imagen: "https://i.postimg.cc/tYfTYJ4S/1789428621695.png",
+                resumenSpecs: "Kit Anillos | TX-50C/100C | Pistón Baja",
+                specs: {
+                    "Tipo": "Kit de Anillos",
+                    "Compatibilidad": "TX-50C y TX-100C",
+                    "Aplicación": "1 Pistón de Baja",
+                    "Marca": "Carroll"
+                }
+            },
+            {
+                modelo: "1310 VÁLVULA CHECK #4 KELLOG 3/4\"X1\"",
+                categoria: "Refacciones y Automáticos",
+                imagen: "https://i.postimg.cc/5jLpPYZ7/1789428978943.png",
+                resumenSpecs: "Válvula Check | Latón | 200 LB",
+                specs: {
+                    "Modelo": "Kellog #4",
+                    "Material": "Latón",
+                    "Tanque": "1\" NPT",
+                    "Tubo Cabezal": "3/4\" Hembra NPT",
+                    "Tubo Switch": "1/8\" Hembra",
+                    "Presión Máx.": "200 LB"
+                }
+            },
+            {
+                modelo: "1330 VÁLVULA CHECK #25 EVANS 3/4\"X3/4\"",
+                categoria: "Refacciones y Automáticos",
+                imagen: "https://i.postimg.cc/bdkL6DKm/1789429152838.png",
+                resumenSpecs: "Check Barril | Latón | 200 LB",
+                specs: {
+                    "Modelo": "Evans Barril #25",
+                    "Material": "Latón",
+                    "Tanque": "3/4\" NPT",
+                    "Tubo Cabezal": "3/4\" Macho Cuerda Fina (Barril)",
+                    "Tubo Switch": "1/8\" Hembra",
+                    "Presión Máx.": "200 LB"
+                }
+            },
+            {
+                modelo: "CAR-ACTB11 VÁLVULA CHECK RECTA 1\"X1\"",
+                categoria: "Refacciones y Automáticos",
+                imagen: "https://i.postimg.cc/JtZKTD9K/Screenshot-20260914-141840-Chrome(1).jpg",
+                resumenSpecs: "Check Recta | Bronce | 200 PSI",
+                specs: {
+                    "Material": "Bronce",
+                    "Rosca Inferior": "H1\" NPT",
+                    "Rosca Media": "M1\" NPT",
+                    "Rosca Admisión": "1/8\" NPT",
+                    "Altura": "9.3 cm",
+                    "Presión Máx.": "200 PSI"
+                }
+            },
+            {
+                modelo: "CAR-ACTB1114 VÁLVULA CHECK RECTA 1\"X1-1/4\"",
+                categoria: "Refacciones y Automáticos",
+                imagen: "https://i.postimg.cc/BtHNhLdh/1789429298769.png",
+                resumenSpecs: "Check Recta | Bronce | 200 PSI",
+                specs: {
+                    "Material": "Bronce",
+                    "Rosca Inferior": "H1\" NPT",
+                    "Rosca Media": "M1-1/4\" NPT",
+                    "Rosca Admisión": "1/8\" NPT",
+                    "Altura": "9.5 cm",
+                    "Presión Máx.": "200 PSI"
+                }
+            },
+            {
+                modelo: "CHECK ÁNGULO 3/8\" X 1/2\" MOTOCOMPRESOR 1300",
+                categoria: "Refacciones y Automáticos",
+                imagen: "https://i.postimg.cc/zbXbTMZM/1789430399893.png",
+                resumenSpecs: "Check Ángulo | Aleación Zinc",
+                specs: {
+                    "Material": "Aleación de Zinc",
+                    "Tanque": "1/2\"",
+                    "Tubo Cabezal": "3/8\" para Barril",
+                    "Tubo Switch": "1/8\" Flare"
+                }
+            },
+            {
+                modelo: "CHECK ÁNGULO 1/2\" X 1/2\" REFORZADA",
+                categoria: "Refacciones y Automáticos",
+                imagen: "https://i.postimg.cc/5YNY8GdR/Screenshot-20260914-141927-Chrome.jpg",
+                resumenSpecs: "Check Ángulo Reforzada | Latón",
+                specs: {
+                    "Material": "Latón",
+                    "Tanque": "1/2\"",
+                    "Tubo Cabezal": "1/2\" Cónica o Flare",
+                    "Tubo Switch": "1/8\" Flare"
+                }
+            },
+            {
+                modelo: "CHECK ÁNGULO 3/4\" X 3/4\"",
+                categoria: "Refacciones y Automáticos",
+                imagen: "https://i.postimg.cc/5YNY8Gdn/Screenshot-20260914-173302-Gallery.jpg",
+                resumenSpecs: "Check Ángulo | Aleación Zinc",
+                specs: {
+                    "Material": "Aleación de Zinc",
+                    "Tanque": "3/4\"",
+                    "Tubo Cabezal": "3/4\" Cónica o Flare",
+                    "Tubo Switch": "1/8\" Flare"
+                }
+            },
+            {
+                modelo: "CAR-VAL-4",
+                categoria: "Refacciones y Automáticos",
+                imagen: "https://i.postimg.cc/XZsp888M/1789409109682.png", 
+                resumenSpecs: "Kit Válvulas | TX-50C y TX-100C",
+                specs: {
+                    "Tipo": "Kit de válvulas",
+                    "Compatibilidad": "TX-50C y TX-100C",
+                    "Admisión": "3 válvulas",
+                    "Exclusión": "2 válvulas",
+                    "Marca": "Carroll"
+                }
+            },
+            {
+                modelo: "CAR-KITE4-100",
+                categoria: "Refacciones y Automáticos",
+                imagen: "https://i.postimg.cc/wRmM9dY5/1789425057414.png", 
+                resumenSpecs: "Kit de Empaques | TX-100C",
+                specs: {
+                    "Tipo": "Kit de empaques",
+                    "Compatibilidad": "TX-100C",
+                    "Uso": "Refacción para cabezal",
+                    "Marca": "Carroll"
+                }
+            },
+            {
+                modelo: "CAR-KITE4-50",
+                categoria: "Refacciones y Automáticos",
+                imagen: "https://i.postimg.cc/Lg15mMFz/1789425090123.png", 
+                resumenSpecs: "Kit de Empaques | TX-50C",
+                specs: {
+                    "Tipo": "Kit de empaques",
+                    "Compatibilidad": "TX-50C",
+                    "Uso": "Refacción para cabezal",
+                    "Marca": "Carroll"
+                }
+            },
+            {
+                modelo: "AUTOMATICO INDUSTRIAL 145-175 PSI",
+                categoria: "Refacciones y Automáticos",
+                imagen: "https://i.postimg.cc/wRmM9dYX/1789425162900.png", 
+                resumenSpecs: "Metálico | 2 Líneas | 1 Vía",
+                specs: {
+                    "Tipo": "Metálico Industrial",
+                    "Rango de Presión": "145 - 175 PSI (Max 250 PSI)",
+                    "Conexión de Entrada": "NPT 1/4\", 1 vía",
+                    "Válvula de alivio": "1/8\"",
+                    "Líneas / Amperaje": "2 líneas / 24A Max",
+                    "Protección": "IP20"
+                }
+            },
+            {
+                modelo: "AUTOMATICO LEFOO H4",
+                categoria: "Refacciones y Automáticos",
+                imagen: "https://i.postimg.cc/wRmM9dYc/1789425489249.png", 
+                resumenSpecs: "140-175 PSI | C/M y C/V",
+                specs: {
+                    "Marca": "Lefoo",
+                    "Modelo": "H4 C/M y C/V",
+                    "Rango de Presión": "140 - 175 PSI",
+                    "Conexión de Entrada": "NPT 1/4\", 4 vías",
+                    "Válvula de alivio": "1/8\"",
+                    "Líneas / Amperaje": "2 líneas / 20A Max",
+                    "Protección": "IP20"
+                }
+            },
+            {
+                modelo: "AUTOMATICO PC6",
+                categoria: "Refacciones y Automáticos",
+                imagen: "https://i.postimg.cc/YLW0twBd/1789425536706.png", 
+                resumenSpecs: "85-115 PSI | S/M y C/V",
+                specs: {
+                    "Marca": "TF",
+                    "Modelo": "PC6 S/M y C/V",
+                    "Rango de Presión": "85 - 115 PSI",
+                    "Conexión de Entrada": "NPT 1/4\", 1 vía",
+                    "Válvula de alivio": "1/8\"",
+                    "Líneas / Amperaje": "2 líneas / 16A Max",
+                    "Protección": "IP20"
+                }
+            },
+            {
+                modelo: "AUTOMATICO SK7 1202",
+                categoria: "Refacciones y Automáticos",
+                imagen: "https://i.postimg.cc/D4X07K3t/1789425622894.png", 
+                resumenSpecs: "90-120 PSI | C/M y C/V",
+                specs: {
+                    "Marca": "TF",
+                    "Modelo": "SK7 C/M y C/V (1202)",
+                    "Rango de Presión": "90 - 120 PSI",
+                    "Conexión de Entrada": "NPT 1/4\", 4 vías",
+                    "Válvula de alivio": "1/8\"",
+                    "Líneas / Amperaje": "2 líneas / 16A Max",
+                    "Protección": "IP20"
+                }
+            }
+        ];
+
+        // RENDERIZADO
+        function renderProductos(filtro = 'all') {
+            const container = document.getElementById('catalog');
+            container.innerHTML = '';
+
+            const productosFiltrados = filtro === 'all' 
+                ? productos 
+                : productos.filter(p => p.categoria === filtro);
+
+            productosFiltrados.forEach(prod => {
+                
+                let specsHTML = '';
+                for (const [key, value] of Object.entries(prod.specs)) {
+                    specsHTML += `
+                        <tr>
+                            <td class="specs-label">${key}</td>
+                            <td class="specs-value">${value}</td>
+                        </tr>
+                    `;
+                }
+
+                const mensajeTexto = "Hola, me interesa solicitar cotización del modelo: " + prod.modelo + "\nCategoría: " + prod.categoria;
+                const waLink = "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(mensajeTexto);
+
+                const cardHTML = `
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <span class="product-badge">${prod.categoria}</span>
+                            <img src="${prod.imagen}" alt="${prod.modelo}" class="product-image">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-category">${prod.resumenSpecs}</span>
+                            <h2 class="product-title">${prod.modelo}</h2>
+                            
+                            <table class="specs-table">
+                                ${specsHTML}
+                            </table>
+
+                            <a href="${waLink}" target="_blank" class="whatsapp-btn">
+                                <i class="fab fa-whatsapp" style="font-size: 20px;"></i>
+                                Solicitar Cotización
+                            </a>
+                        </div>
+                    </div>
+                `;
+                
+                container.innerHTML += cardHTML;
+            });
+        }
+
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+                
+                const filtro = e.target.getAttribute('data-filter');
+                renderProductos(filtro);
+            });
+        });
+
+        renderProductos();
+    </script>
+</body>
+</html>
