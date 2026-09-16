@@ -279,11 +279,14 @@
 
     <div class="category-filters" id="filters">
         <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="Compresores de Pistón">Pistón</button>
+        <button class="filter-btn" data-filter="Compresores de Tornillo">Tornillo</button>
+        <button class="filter-btn" data-filter="Libres de Aceite y Vacío">Libres de Aceite / Vacío</button>
+        <button class="filter-btn" data-filter="Secadores y Tratamiento">Secadores</button>
         <button class="filter-btn" data-filter="Cabezales TX (Uso Pesado)">Serie TX</button>
         <button class="filter-btn" data-filter="Cabezales TB (Estándar)">Serie TB</button>
-        <button class="filter-btn" data-filter="Secadores de Aire">Secadores de Aire</button>
-        <button class="filter-btn" data-filter="Tanques y Tratamiento">Tanques y Tratamiento</button>
-        <button class="filter-btn" data-filter="Refacciones y Automáticos">Refacciones y Automáticos</button>
+        <button class="filter-btn" data-filter="Tanques y Tratamiento">Tanques</button>
+        <button class="filter-btn" data-filter="Refacciones y Automáticos">Refacciones</button>
     </div>
 
     <div class="catalog-container" id="catalog">
@@ -304,6 +307,128 @@
 
         // BASE DE DATOS DE PRODUCTOS
         const productos = [
+            // --- NUEVOS EQUIPOS INDUSTRIALES ---
+            {
+                modelo: "COMPRESOR DE PISTÓN - TRABAJO LIGERO",
+                categoria: "Compresores de Pistón",
+                imagen: "https://i.postimg.cc/Hr8rmpxZ/20260916-005247.jpg",
+                resumenSpecs: "150 PSI | Tanque 500L o 1000L",
+                specs: {
+                    "Tipo": "Compresor de Pistón",
+                    "Régimen": "Trabajo Ligero",
+                    "Presión Máxima": "150 PSI",
+                    "Capacidad Tanque": "500 L o 1000 Litros"
+                }
+            },
+            {
+                modelo: "COMPRESOR LÍNEA AZUL - TRABAJO PESADO",
+                categoria: "Compresores de Pistón",
+                imagen: "https://i.postimg.cc/Hr9fVMVY/20260916-005649.jpg",
+                resumenSpecs: "150 PSI | Línea Azul | Tanque 500L / 1000L",
+                specs: {
+                    "Tipo": "Compresor de Pistón (Línea Azul)",
+                    "Régimen": "Trabajo Pesado",
+                    "Presión Máxima": "150 PSI",
+                    "Capacidad Tanque": "500 L o 1000 Litros"
+                }
+            },
+            {
+                modelo: "COMPRESOR DE PISTÓN - ALTA PRESIÓN",
+                categoria: "Compresores de Pistón",
+                imagen: "https://i.postimg.cc/2VwwW7FP/20260916-005900.jpg",
+                resumenSpecs: "Hasta 3000 PSI | Alta Presión",
+                specs: {
+                    "Tipo": "Compresor de Pistón",
+                    "Aplicación": "Alta Presión",
+                    "Presión de Trabajo": "Hasta 3000 PSI",
+                    "Uso": "Industrial Especializado"
+                }
+            },
+            {
+                modelo: "COMPRESOR DE ALTA PRESIÓN (DOBLE TANQUE)",
+                categoria: "Compresores de Pistón",
+                imagen: "https://i.postimg.cc/1VRK7gyV/20260916-010122.jpg",
+                resumenSpecs: "580 PSI | 35 C.F.M. | 2 Tanques 80L",
+                specs: {
+                    "Tipo": "Compresor de Pistón Alta Presión",
+                    "Presión Máxima": "580 PSI",
+                    "Desplazamiento": "35 C.F.M.",
+                    "Configuración": "Montado sobre dos tanques de 80 L"
+                }
+            },
+            {
+                modelo: "COMPRESOR DE TORNILLO P/ CORTE LÁSER",
+                categoria: "Compresores de Tornillo",
+                imagen: "https://i.postimg.cc/qzP3ztWS/20260916-010405.jpg",
+                resumenSpecs: "235 PSI | Tanque 400L | Con Secador y Driver",
+                specs: {
+                    "Tipo": "Compresor de Tornillo Alta Presión",
+                    "Presión": "235 PSI",
+                    "Tanque": "400 Litros",
+                    "Equipamiento": "Secador refrigerativo y driver incluido",
+                    "Aplicación": "Diseñado para equipos de corte láser"
+                }
+            },
+            {
+                modelo: "COMPRESOR DE TORNILLO INDUSTRIAL",
+                categoria: "Compresores de Tornillo",
+                imagen: "https://i.postimg.cc/628Wrcvv/20260916-010553.jpg",
+                resumenSpecs: "8, 10 o 12 Bar | Est. Delta o Driver",
+                specs: {
+                    "Tipo": "Compresor de Tornillo",
+                    "Presión": "8, 10 o 12 Bar",
+                    "Arranque": "Estrella-Delta o con Driver (Inverter)",
+                    "Aplicación": "Uso Industrial Continuo"
+                }
+            },
+            {
+                modelo: "COMPRESOR DE TORNILLO DOS ETAPAS (PM)",
+                categoria: "Compresores de Tornillo",
+                imagen: "https://i.postimg.cc/187bGQrP/20260916-010807.jpg",
+                resumenSpecs: "Motores PM + Driver | Alta Eficiencia",
+                specs: {
+                    "Tipo": "Compresor de Tornillo Dos Etapas",
+                    "Tecnología": "Motores PM (Imanes Permanentes) y Driver",
+                    "Presión": "8, 10 o 12 Bar",
+                    "Ventajas": "Alta eficiencia, ahorro de energía y silencioso"
+                }
+            },
+            {
+                modelo: "COMPRESOR NO LUBRICADO (MEDICO / INDUSTRIAL)",
+                categoria: "Libres de Aceite y Vacío",
+                imagen: "https://i.postimg.cc/p9N4GB4h/20260916-011114.jpg",
+                resumenSpecs: "6 a 10 Bar | Tanques 227L, 300L o 500L",
+                specs: {
+                    "Tipo": "Compresor No Lubricado (Oil-Free)",
+                    "Aplicación": "Médico e Industrial",
+                    "Presión": "6 a 10 Bar",
+                    "Tanques Disponibles": "227, 300 o 500 Litros (Totalmente equipados)"
+                }
+            },
+            {
+                modelo: "BOMBA DE VACÍO DE PISTÓN NO LUBRICADA",
+                categoria: "Libres de Aceite y Vacío",
+                imagen: "https://i.postimg.cc/Cd6vrNfF/20260916-011253.jpg",
+                resumenSpecs: "No Lubricada | Tanques 227L, 300L o 500L",
+                specs: {
+                    "Tipo": "Bomba de Vacío de Pistón No Lubricado",
+                    "Montaje": "Sobre tanque de 227, 300 o 500 Litros",
+                    "Aplicación": "Procesos industriales y hospitalarios"
+                }
+            },
+            {
+                modelo: "SECADOR REFRIGERATIVO Y REGENERATIVO",
+                categoria: "Secadores y Tratamiento",
+                imagen: "https://i.postimg.cc/CRps96hW/20260916-011434.jpg",
+                resumenSpecs: "Baja Presión 200 PSI / Alta Presión 500 PSI",
+                specs: {
+                    "Tipo": "Secador Refrigerativo y Regenerativo",
+                    "Baja Presión": "Hasta 200 PSI",
+                    "Alta Presión": "Hasta 500 PSI",
+                    "Función": "Eliminación avanzada de humedad"
+                }
+            },
+
             // --- TANQUES Y TRATAMIENTO DE AIRE ---
             {
                 modelo: "TANQUE PULMÓN VERTICAL 1000L",
