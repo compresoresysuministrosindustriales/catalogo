@@ -76,6 +76,57 @@
             font-size: 18px;
         }
 
+        /* SECCIÓN DE SERVICIOS PROFESIONALES */
+        .professional-services {
+            background: linear-gradient(135deg, #111 0%, #222 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 3px solid var(--carroll-red);
+        }
+
+        .services-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 25px;
+        }
+
+        .service-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px 20px;
+            border-radius: 10px;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .service-box:hover {
+            transform: translateY(-5px);
+            border-color: var(--carroll-red);
+        }
+
+        .service-box i {
+            font-size: 36px;
+            color: var(--carroll-red);
+            margin-bottom: 15px;
+        }
+
+        .service-box h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .service-box p {
+            font-size: 14px;
+            color: #ccc;
+            line-height: 1.5;
+        }
+
         /* FILTROS */
         .category-filters {
             display: flex;
@@ -277,6 +328,23 @@
         </div>
     </div>
 
+    <!-- SECCIÓN DE SERVICIOS ESPECIALIZADOS -->
+    <section class="professional-services">
+        <h2 style="font-size: 22px; text-transform: uppercase; letter-spacing: 1px; font-weight: 900;">Nuestros Servicios Profesionales</h2>
+        <div class="services-wrapper">
+            <div class="service-box">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+                <h3>Servicio Especializado</h3>
+                <p>Mantenimiento preventivo, correctivo y soporte técnico experto en compresores de aire comprimido de cualquier marca.</p>
+            </div>
+            <div class="service-box">
+                <i class="fa-solid fa-network-wired"></i>
+                <h3>Redes Neumáticas</h3>
+                <p>Diseño e instalación profesional de redes neumáticas para garantizar el flujo y la eficiencia óptima en su planta.</p>
+            </div>
+        </div>
+    </section>
+
     <div class="category-filters" id="filters">
         <button class="filter-btn active" data-filter="all">Todos</button>
         <button class="filter-btn" data-filter="Compresores de Pistón">Pistón</button>
@@ -311,15 +379,14 @@
             {
                 modelo: "CAR-V235173BI-AR",
                 categoria: "Compresores de Pistón",
-                imagen: "https://i.postimg.cc/fty2mJz2/Screenshot-20260926-143308-Mercado-Libre.jpg",
-                resumenSpecs: "3 HP | Tanque 235L | 115 PSI",
+                imagen: "https://i.postimg.cc/grr2r1c1/Screenshot-20261014-143211-Mercado-Libre.jpg",
+                resumenSpecs: "2 HP | Tanque 235L | 8 PCM",
                 specs: {
                     "Capacidad": "235 Litros",
-                    "Potencia": "3 HP",
-                    "Velocidad": "1100 RPM",
-                    "Fases / Voltaje": "2 Fases / 220 Volts",
-                    "Volumen Producido": "18.6 PCM / 525 L/min",
-                    "Presión Máxima": "115 PSI / 8 BAR"
+                    "Potencia": "2 HP",
+                    "Voltaje": "110/220 Volts",
+                    "Velocidad": "125 RPM",
+                    "Flujo de Aire": "8 PCM"
                 }
             },
             {
